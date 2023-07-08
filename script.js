@@ -1,4 +1,11 @@
 const API_KEY = "48daae8267bc447b96969729bab86ecb";
+const recipeListEl = document.getElementById("recipe-list")
+
+//function to pass the recipe data as an input
+function displayRecipes(recipes){
+    recipeListEl.innerHTML = " "
+
+}
 
 //function to get info from API
 async function getRecepies(){
@@ -9,3 +16,9 @@ async function getRecepies(){
   return data.recipes
 }
 
+async function init(){
+    const recipes =  await getRecepies()
+    displayRecipes(recipes)
+}
+
+init()
