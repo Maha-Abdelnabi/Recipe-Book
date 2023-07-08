@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Book</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Recipe Book App</h1>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find your Meal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+  
+  <div class = "container">
+    <div class = "meal-wrapper">
+      <div class = "meal-search">
+        <h2 class = "title">Find Meals For Your Ingredients</h2>
+        <blockquote>Food may be essential as fuel for the body, but GOOD food is fuel for the soul<br>
+          <cite>- Malcolm Forbes</cite>
+        </blockquote>
 
-    <div class="container">
-      <ul id="recipe-list" class="recipe-list">
-        <li class="recipe-item">
-          <img
-            src="https://spoonacular.com/recipeImages/13843-312x231.jpg"
-            alt="Recipe 1"
-          />
-          <h2>Recipe 1</h2>
-          <p>
-            <strong>Ingredients:</strong> Ingredient 1, Ingredient 2, Ingredient
-            3
-          </p>
-          <a href="#">View Recipe</a>
-        </li>
-        <li class="recipe-item">
-          <img
-            src="https://spoonacular.com/recipeImages/2654-312x231.jpg"
-            alt="Recipe 2"
-          />
-          <h2>Recipe 2</h2>
-          <p>
-            <strong>Ingredients:</strong> Ingredient 1, Ingredient 2, Ingredient
-            3
-          </p>
-          <a href="#">View Recipe</a>
-        </li>
-        <li class="recipe-item">
-          <img
-            src="https://spoonacular.com/recipeImages/335-312x231.jpg"
-            alt="Recipe 3"
-          />
-          <h2>Recipe 3</h2>
-          <p>
-            <strong>Ingredients:</strong> Ingredient 1, Ingredient 2, Ingredient
-            3
-          </p>
-          <a href="#">View Recipe</a>
-        </li> 
-      </ul>
+        <div class = "meal-search-box">
+          <input type = "text" class = "search-control" placeholder="Enter an ingredient" id = "search-input">
+          <button type = "submit" class = "search-btn btn" id = "search-btn">
+            <i class = "fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class = "meal-result">
+        <h2 class = "title">Your Search Results:</h2>
+        <div id= "meal">
+          <!-- meal item -->
+             <div class = "meal-item">
+            <div class = "meal-img">
+              <img src = "https://az727718.vo.msecnd.net/75f28e2721eb4488b6b368de202c4603/images/fdf8e2718efe4b45a9b1d561a3f15575_540w.jpg" alt = "food">
+            </div>
+            <div class = "meal-name">
+              <h3>Grilled chicken</h3>
+              <a href = "#" class = "recipe-btn">Get Recipe</a>
+            </div>
+          </div> 
+          <!-- end of meal item -->
+        </div>
+      </div>
+
+
+     
     </div>
-    <script src="script.js"></script>
-  </body>
+  </div>
+
+
+
+  <script src = "script.js"></script>
+</body>
 </html>
