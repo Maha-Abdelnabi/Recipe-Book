@@ -14,6 +14,7 @@ body{
     font-size: 1.05rem;
     line-height: 1.6;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 /*  */
@@ -34,6 +35,7 @@ body{
 /*  */
 .container{
     min-height: 100vh;
+    background-color: #f7f7f7;
 }
 .meal-wrapper{
     max-width: 1280px;
@@ -41,6 +43,8 @@ body{
     padding: 2rem;
     background: #fff;
     text-align: center;
+    
+
 }
 .meal-search{
     margin: 2rem 0;
@@ -49,13 +53,14 @@ body{
     font-size: 1rem;
 }
 .meal-search-box{
-    margin: 1.2rem 0;
+    margin: 1.5rem 0 1.5rem 22rem;
     display: flex;
     align-items: stretch;
 }
 .search-control,
 .search-btn{
-    width: 100%;
+    width: 50%;
+    align-items: center;
 }
 .search-control{
     padding: 0 1rem;
