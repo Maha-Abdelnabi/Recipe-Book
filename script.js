@@ -1,8 +1,11 @@
 const searchBtn = document.getElementById("search-btn");
 const mealList = document.getElementById("meal");
+const mealDetailsContent = document.querySelector(".meal-details-content");
+const recipeCloseBtn = document.getElementById("recipe-close-btn");
 
 // event listeners
 searchBtn.addEventListener("click", getMealList);
+mealList.addEventListener("click", getMealRecipe);
 
 // get meal list that matches with the ingredients
 function getMealList() {
@@ -29,6 +32,27 @@ function getMealList() {
         });
       
     }
+    else{
+        text = "No meals found!"
+    }
 mealList.innerHTML = text;
 });
+}
+
+
+// get recipe of the meal
+function getMealRecipe(e){
+    e.preventDefault();
+    if(e.target.classList.contains('recipe-btn')){
+        let mealItem = e.target.parentElement.parentElement;
+        fetch(
+          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data)
+
+          });
+    }
+
 }
