@@ -1,11 +1,14 @@
 const searchBtn = document.getElementById("search-btn");
 const mealList = document.getElementById("meal");
-const mealDetailsContent = document.querySelector(".meal-details-content");
+const mealDetailsContent = document.getElementById("meal-details-content");
 const recipeCloseBtn = document.getElementById("recipe-close-btn");
 
 // event listeners
 searchBtn.addEventListener("click", getMealList);
 mealList.addEventListener("click", getMealRecipe);
+recipeCloseBtn.addEventListener("click", () => {
+  mealDetailsContent.parentElement.classList.remove("showRecipe");
+});
 
 // get meal list that matches with the ingredients
 function getMealList() {
@@ -15,10 +18,10 @@ function getMealList() {
   )
     .then((res) => res.json())
     .then((data) => {
-      let text = '';
+      let html = '';
       if(data.meals){
         data.meals.forEach(meal=>{
-            text += `
+            html += `
              <div class = "meal-item" data-id = "${meal.idMeal}">
                         <div class = "meal-img">
                             <img src = "${meal.strMealThumb}" alt = "food">
@@ -33,9 +36,9 @@ function getMealList() {
       
     }
     else{
-        text = "No meals found!"
+        html = "No meals found!"
     }
-mealList.innerHTML = text;
+mealList.innerHTML = html;
 });
 }
 
@@ -49,10 +52,28 @@ function getMealRecipe(e){
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
         )
           .then((response) => response.json())
-          .then((data) => {
-            console.log(data)
-
-          });
+          .then((data) => mealRecipeModal(data.meals))
+          };
     }
 
+// create a modal
+function mealRecipeModal(meal){
+    console.log(meal);
+    meal = meal[0];
+    let html = `
+    <h2 class = "recipe-title">${meal.strMeal}</h2>
+        <div class = "recipe-instruct">
+            <h3>Instructions:</h3>
+            <p>${meal.strInstructions}</p>
+        </div>
+        <div class = "recipe-meal-img">
+            <img src = "${meal.strMealThumb}" alt = "">
+        </div>
+        <div class = "recipe-link">
+            <a href = "${meal.strYoutube}" target = "_blank">Watch Video</a>
+        </div>
+    `;
+     mealDetailsContent.innerHTML = html;
+      mealDetailsContent.parentElement.classList.add("showRecipe");
+    
 }
